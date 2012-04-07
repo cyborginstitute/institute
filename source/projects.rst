@@ -6,6 +6,10 @@ Projects Overview
    development stage, and ":doc:`contact`" if you want to have your
    project included in the Institute.
 
+.. _`ikiwiki`: http://ikiwiki.info
+.. _`Gollum`: https://github.com/github/gollum
+.. _`Sphinx`: http://sphinx.pocoo.org/
+
 Systems Administration for Cyborgs
 ----------------------------------
 
@@ -31,9 +35,8 @@ Taskfile
 
 Using `GNU Make <http://www.gnu.org/software/make/>`_ provides a way
 to compile lists of ``TODO`` items from a tree of files, such as those
-created by a flat-file wiki like `ikiwiki <http://ikiwiki.info>`_ or
-`Gollum <https://github.com/github/gollum>`_. Includes example
-makefile examples, a deployment guide, documentation, and a
+created by a flat-file wiki like `ikiwiki`_ or `Gollum`_. Includes
+example makefile examples, a deployment guide, documentation, and a
 development history.
 
 - `Taskfile project page and documentation <http://cyborginstitute.com/projects/taskfile>`_
@@ -65,9 +68,8 @@ stl, a Personal Logging Script
 and logging work for writers. It provides a unified interface around
 logging word count information, as well as compiling projects, and
 other related functionality. If you publish text using software such
-as `ikiwiki <http://ikiwiki.info/>`_, `Sphinx
-<http://sphinx.pocoo.org/>`_, or using ad hoc Makefiles, ``stl`` may
-do exactly what you want.
+as `ikiwiki`_, `Sphinx`_, or using ad hoc Makefiles, ``stl`` may do
+exactly what you want.
 
 - `stl project page <http://cyborginstitute.com/projects/stl>`_
 - `stl source repo <http://git.cyborginstitute.net/?p=stl.git>`_
@@ -87,3 +89,4 @@ configuration for StumpWM, and emacs.
 - `Stack source repo <http://git.cyborginstitute.net/?p=stack.git>`_
 - `Stack source repo on github <http://github.com/tychoish/stack>`_
 - `Stack Issues <http://issues.cyborginstitute.net/stack>`_
+
