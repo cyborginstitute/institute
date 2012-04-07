@@ -1,0 +1,68 @@
+====================
+The Cyborg Institute
+====================
+
+Welcome to the Cyborg Institute! The "Institute," somewhat in-jest, has
+been an attempt at building an *ad hoc* virtual think tank in the
+tradition of :term:`free software`. The Cyborg Institute has always
+addressed issues at the intersection of technology, society/culture,
+and the individual user.
+
+Currently, the institute operates as a publishing/hosting umbrella and
+as a home for several projects and tools. For more extensive
+information about the current projects, their state, and their goals
+see the ":doc:`projects`" page. To join an existing Institute project
+or contribute to an existing project, see the ":doc:`meta`" page. And
+always feel free to be in :doc:`contact <contact>`."
+
+Projects
+--------
+
+- :project:`Systems Administration for Cyborgs <cyborg-admin>` (a book-like-object.)
+- :project:`Taskfile <taskfile>` (a task list compiler.)
+- :project:`CSC <csc>` (an incremental static site compiler.)
+- :project:`Personal Stats Logger (stl) <stl>` (a script.)
+- :project:`tychoish's desktop configuration stack <stack>` (or simply,
+  "stack," which is a collection of emacs, StumpWM, and related
+  configuration files.)
+
+See ":doc:`projects`" for more information.
+
+.. - `KB Magic </kb-magic>`_
+
+Resources
+---------
+
+- `git.cyborginstitute.net <http://git.cyborginstitute.net/>`_:
+  Provides :term:`git` hosting and mirrors to institute projects and
+  related efforts.
+
+- `issues.cyborginstitue.net <http://issues.cyborginstitute.net/>`_:
+  Provides issue tracking references and links for Institute projects.
+
+- `tychoish.com wiki <http://tychoish.com>`_: Wiki/blog space for
+  Institute related projects.
+
+Related Projects
+----------------
+
+- `Critical Futures <http://criticalfutures.com>`_: Science Fiction
+  and Literary projects and experimental publishing.
+
+- `Outer Aliance Wiki <http://oa.criticalfutures.com/>`_: The wiki of
+  `the Outer Alliance <http://outeralliance.org>`_.
+
+Pages
+-----
+
+.. toctree::
+
+   meta
+   projects
+   in-progress
+   contact
+
+.. toctree::
+   :hidden:
+
+   ref
