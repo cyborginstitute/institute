@@ -32,7 +32,7 @@ extensions = ["sphinx.ext.intersphinx", "sphinx.ext.extlinks"]
 templates_path = ['.templates']
 
 # The suffix of source filenames.
-source_suffix = '.rst'
+source_suffix = '.txt'
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
@@ -87,8 +87,13 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
-extlinks = {
-    'project': ('http://cyborginstitute.org/projects/%s', ''),
+project = {
+    'extlinks': ('http://cyborginstitute.org/projects/%s', ''),
+    'institute': ('http://cyborginstitute.com/%s', ''),
+    'issues': ('http://issues.cyborginstitute.com/%s', ''),
+    'list': ('http://lists.cyborginstitute.com/listinfo/%s', ''),
+    'git': ('http://git.cyborginstitute.com/%s', ''),
+    'github': ('http://github.com/cyborginstitute/%s', ''),
     }
 
 

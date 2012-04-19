@@ -1,0 +1,19 @@
+=======================
+Projects in Development
+=======================
+
+This document contains an overview of projects that are in progress,
+or under heavy development. 
+
+.. seealso:: ":doc:`projects`" for an overview of projects in the
+   development stage, and ":doc:`contact`" if you want to have your
+   project included in the Institute.
+
+CSC, Cyborg Site Compiler
+-------------------------
+
+Basic Computing for Cyborgs
+---------------------------
+
+As a follow up to :projects:`Systems Administration for Cyborgs <cyborg-admin>`,
+this project will provide a basic Computer Literacy "
