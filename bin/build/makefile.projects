@@ -1,0 +1,56 @@
+rebuild: $(PROJECTS_DIR)/taskfile/docs/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/stack/docs/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/stl/docs/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/csc/docs/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/cyborg-admin/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/institute/build/$(SPHINX_TYPE) 
+
+
+$(PROJECTS_DIR)/output/taskfile:$(PROJECTS_DIR)/taskfile/docs/build/$(SPHINX_TYPE)
+	cp -R $< $@
+$(PROJECTS_DIR)/taskfile/docs/build/$(SPHINX_TYPE):
+	$(MAKE) -C $(PROJECTS_DIR)/taskfile $(SPHINX_TYPE)
+$(PROJECTS_DIR)/taskfile/docs/themes/cyborg:$(PROJECTS_DIR)/institute/themes/cyborg
+	cp -R $< $@
+
+
+$(PROJECTS_DIR)/output/stack:$(PROJECTS_DIR)/stack/docs/build/$(SPHINX_TYPE)
+	cp -R $< $@
+$(PROJECTS_DIR)/stack/docs/build/$(SPHINX_TYPE):
+	$(MAKE) -C $(PROJECTS_DIR)/stack $(SPHINX_TYPE)
+$(PROJECTS_DIR)/stack/docs/themes/cyborg:$(PROJECTS_DIR)/institute/themes/cyborg
+	cp -R $< $@
+
+
+$(PROJECTS_DIR)/output/stl:$(PROJECTS_DIR)/stl/docs/build/$(SPHINX_TYPE)
+	cp -R $< $@
+$(PROJECTS_DIR)/stl/docs/build/$(SPHINX_TYPE):
+	$(MAKE) -C $(PROJECTS_DIR)/stl $(SPHINX_TYPE)
+$(PROJECTS_DIR)/stl/docs/themes/cyborg:$(PROJECTS_DIR)/institute/themes/cyborg
+	cp -R $< $@
+
+
+$(PROJECTS_DIR)/output/csc:$(PROJECTS_DIR)/csc/docs/build/$(SPHINX_TYPE)
+	cp -R $< $@
+$(PROJECTS_DIR)/csc/docs/build/$(SPHINX_TYPE):
+	$(MAKE) -C $(PROJECTS_DIR)/csc $(SPHINX_TYPE)
+$(PROJECTS_DIR)/csc/docs/themes/cyborg:$(PROJECTS_DIR)/institute/themes/cyborg
+	cp -R $< $@
+
+
+$(PROJECTS_DIR)/output/cyborg-admin:$(PROJECTS_DIR)/cyborg-admin/build/$(SPHINX_TYPE)
+	cp -R $< $@
+$(PROJECTS_DIR)/cyborg-admin/build/$(SPHINX_TYPE):
+	$(MAKE) -C $(PROJECTS_DIR)/cyborg-admin $(SPHINX_TYPE)
+$(PROJECTS_DIR)/cyborg-admin/themes/cyborg:$(PROJECTS_DIR)/institute/themes/cyborg
+	cp -R $< $@
+
+
+$(PROJECTS_DIR)/output/institute:$(PROJECTS_DIR)/institute/build/$(SPHINX_TYPE)
+	cp -R $< $@
+$(PROJECTS_DIR)/institute/build/$(SPHINX_TYPE):
+	$(MAKE) -C $(PROJECTS_DIR)/institute $(SPHINX_TYPE)
+
+deploy: setup $(PROJECTS_DIR)/output/taskfile $(PROJECTS_DIR)/output/stack $(PROJECTS_DIR)/output/stl $(PROJECTS_DIR)/output/csc $(PROJECTS_DIR)/output/cyborg-admin $(PROJECTS_DIR)/output/institute 
+
+themes: $(PROJECTS_DIR)/taskfile/docs/themes/cyborg $(PROJECTS_DIR)/stack/docs/themes/cyborg $(PROJECTS_DIR)/stl/docs/themes/cyborg $(PROJECTS_DIR)/csc/docs/themes/cyborg $(PROJECTS_DIR)/cyborg-admin/themes/cyborg  
+
+clean-all:
+	-rm -rf $(PROJECTS_DIR)/output
+	-rm -rf $(PROJECTS_DIR)/taskfile/docs/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/stack/docs/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/stl/docs/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/csc/docs/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/cyborg-admin/build/$(SPHINX_TYPE) $(PROJECTS_DIR)/institute/build/$(SPHINX_TYPE) 
+
