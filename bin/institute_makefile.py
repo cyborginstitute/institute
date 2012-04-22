@@ -4,6 +4,9 @@ OUTPUT_FILE = "build/makefile.projects"
 
 THEME_NAME = "cyborg"
 
+SPHINX_TYPE = "dirhtml"
+PROJECTS_DIR = "~/projects"
+
 project_info = [
   # ( project, has-docs-dir ),
     ("taskfile", True),
@@ -17,23 +20,24 @@ project_info = [
 JOB = "\n\t"
 TARGET = "\n"
 
+
 class Projects:
     def generate_project(projects):
         build_info = []
 
         for (project, build) in projects:
             if build == True:
-                build = "docs/build/$(SPHINX_TYPE)"
+                build = "docs/build/" + SPHINX_TYPE 
                 theme_path = "docs/themes/" + THEME_NAME
             else:
-                build = "build/$(SPHINX_TYPE)"
+                build = "build/" + SPHINX_TYPE 
                 theme_path = "themes/" + THEME_NAME
 
-            output = "$(PROJECTS_DIR)/output/" + project
-            source = "$(PROJECTS_DIR)/" + project + "/" + build
-            command = "$(PROJECTS_DIR)/" + project + " $(SPHINX_TYPE)"
-            theme = ("$(PROJECTS_DIR)/" + project + "/" + theme_path +
-                     ":" + "$(PROJECTS_DIR)/institute/themes/" + THEME_NAME)
+            output = PROJECTS_DIR + "/output/" + project
+            source = PROJECTS_DIR + "/" + project + "/" + build
+            command = PROJECTS_DIR + "/" + project + " " + SPHINX_TYPE
+            theme = (PROJECTS_DIR + "/" + project + "/" + theme_path +
+                     ":" + PROJECTS_DIR + "/institute/themes/" + THEME_NAME)
 
             if project == "institute":
                 theme = ""
@@ -85,7 +89,7 @@ class Targets:
 
         rebuild = "rebuild: "
         clean_all = ("clean-all:" +
-                     JOB + "-rm -rf $(PROJECTS_DIR)/output" +
+                     JOB + "-rm -rf" + PROJECTS_DIR + "/output" +
                      JOB + "-rm -rf ")
 
         for source in sources:
@@ -106,6 +110,7 @@ class Targets:
         return deploy, rebuild, clean_all, theme_target
 
 class InstituteMakefile:
+    institute_theme = PROJECTS_DIR + "/institute/themes/cyborg:"
     project_builders = Targets.builders(Projects.build_info)
 
     deploy, rebuild, clean_all, themes = Targets.interactors(Projects.outputs,
@@ -118,6 +123,7 @@ def main():
     makefile = open(OUTPUT_FILE, "w")
 
     makefile.write(InstituteMakefile.rebuild)
+    makefile.write(InstituteMakefile.institute_theme)
 
     for line in InstituteMakefile.project_builders:
         makefile.write(line)

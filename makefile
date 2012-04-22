@@ -1,9 +1,11 @@
 ##
 ## Environment Setup:
 ##
+## (Note: bin/institute_makefile.py specifies similar variables seperatly)
+##
 
 include makefile.docs
--include build/makefile.projects
+include build/makefile.projects
 
 BUILD_DIR = build
 PROJECTS_DIR = ~/projects
@@ -45,7 +47,7 @@ $(BUILD_DIR):
 ## Meta-worker targets for building and migration
 ##
 
-push:deploy
+push:themes deploy 
 	rsync -arz $(PUBLISHDIR) institute@foucault.cyborginstitute.net:/srv/www/cyborginstitute/public
 
 ##

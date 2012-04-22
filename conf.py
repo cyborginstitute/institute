@@ -99,6 +99,7 @@ project = {
 # -- Options for HTML output ---------------------------------------------------
 
 git_name = 'cyborg-admin'
+
 html_theme_options = { 'project': git_name }
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
