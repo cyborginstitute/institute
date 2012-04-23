@@ -16,17 +16,24 @@ SPHINX_TYPE = dirhtml
 ##
 
 .PHONY: push deploy setup clean rebuild clean-all help
-
+.DEFAULT_GOAL = help
 build/makefile.projects:bin/institute_makefile.py
 	python $<
 
 help:
 	@echo "Use the following targets to build and deploy the Cyborg Institute:"
 	@echo ""
-	@echo "	   rebuild - rebuild all institute sites."
-	@echo "	   deploy - stage a deployments of the Institute content."
-	@echo "	   push - move all updated content to the production environment."
-	@echo "	   themes - rebuild all themes as needed"
+	@echo "    rebuild  - rebuild all institute sites."
+	@echo "    stage    - stage a deployments of the Institute content."
+	@echo "    push     - move all updated content to the production environment."
+	@echo "    themes   - reimport themes to all Institute projects (as needed.)"
+	@echo ""
+	@echo "    clean          - remove $(BUILD_DIR)/ and its contents"
+	@echo "	   clean-stage    - remove $(PUBLISH_DIR)/ and its contents"
+	@echo "    clean-all      - remove $(PUBLISH_DIR)/ and build directories for"
+	@echo "                     all institute sphinx projects"
+	@echo "    clean-theme    - remove theme files for all institute projects"
+	@echo ""
 	@echo ""
 	@echo ""
 	@echo "Note: all default Sphinx targets are avalible."
@@ -56,5 +63,5 @@ push:themes deploy
 
 clean:
 	-rm -rf $(BUILD_DIR)/*
-clean-deploy:
+clean-stage:
 	-rm -rf $(PUBLISH_DIR)/*
