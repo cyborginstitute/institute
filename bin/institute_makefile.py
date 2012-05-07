@@ -31,11 +31,12 @@ def generate_build_info(project, build):
     output = PROJECTS_DIR + "/output/" + project
     source = PROJECTS_DIR + project_path + "/build/" + SPHINX_TYPE
     command = PROJECTS_DIR + project_path + " " + SPHINX_TYPE
-    theme = (PROJECTS_DIR + project_path + "/themes/" + THEME_NAME +
-             ":" + PROJECTS_DIR + "/institute/themes/" + THEME_NAME)
 
     if project == "institute":
         theme = ""
+    else: 
+        theme = (PROJECTS_DIR + project_path + "/themes/" + THEME_NAME +
+                 ":" + PROJECTS_DIR + "/institute/themes/" + THEME_NAME)
 
     item = (output, source, command, theme)
 
@@ -61,6 +62,7 @@ def makefile_builders(build_info):
                        JOB + "cp -R $< $@" +
                        TARGET + source + ":"  +
                        JOB + "$(MAKE) -C " + command)
+
         if theme == "":
             theme_build = ""
         else:
