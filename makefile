@@ -17,7 +17,7 @@ SPHINX_TYPE = dirhtml
 
 .PHONY: push deploy setup clean rebuild clean-all help
 .DEFAULT_GOAL = help
-build/makefile.projects:bin/institute_makefile.py
+makefile.projects:bin/institute_makefile.py
 	python $<
 
 help:
@@ -41,7 +41,7 @@ help:
 ## Setup and dependency establishment
 ##
 
-setup:$(PROJECTS_DIR)/output/issues $(BUILD_DIR)
+setup:$(PROJECTS_DIR)/output/issues $(BUILD_DIR) makefile.projects
 
 $(PROJECTS_DIR)/output/issues:
 	mkdir -p $@
@@ -61,5 +61,6 @@ push:themes deploy
 
 clean:
 	-rm -rf $(BUILD_DIR)/*
+	-rm -rf makefile.projects
 clean-stage:
 	-rm -rf $(PUBLISH_DIR)/*
