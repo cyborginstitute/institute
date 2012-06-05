@@ -57,7 +57,7 @@ release = ''
 #language = None
 
 # There are two options for replacing |today|: either, you set today to some
-# non-false value, then it is used:
+# non-falsev balue, then it is used:
 #today = ''
 # Else, today_fmt is used as the format for a strftime call.
 #today_fmt = '%B %d, %Y'
@@ -86,13 +86,13 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
-project = {
-    'extlinks': ('http://cyborginstitute.org/projects/%s', ''),
+extlinks = {
+    'project': ('http://cyborginstitute.org/projects/%s', ''),
     'institute': ('http://cyborginstitute.com/%s', ''),
     'issues': ('http://issues.cyborginstitute.com/%s', ''),
     'list': ('http://lists.cyborginstitute.com/listinfo/%s', ''),
     'git': ('http://git.cyborginstitute.com/%s', ''),
-    'github': ('http://github.com/cyborginstitute/%s', ''),
+    'github': ('http://github.com/cyborginstitute/%s', '')
     }
 
 

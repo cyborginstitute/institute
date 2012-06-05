@@ -5,7 +5,7 @@
 ##
 
 include makefile.docs
-include build/makefile.projects
+-include build/makefile.projects
 
 BUILD_DIR = build
 PROJECTS_DIR = ~/projects
@@ -33,8 +33,6 @@ help:
 	@echo "    clean-all      - remove $(PUBLISH_DIR)/ and build directories for"
 	@echo "                     all institute sphinx projects"
 	@echo "    clean-theme    - remove theme files for all institute projects"
-	@echo ""
-	@echo ""
 	@echo ""
 	@echo "Note: all default Sphinx targets are avalible."
 	@echo ""
