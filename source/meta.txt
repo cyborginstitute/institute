@@ -1,3 +1,18 @@
 ==============================
 Participating in the Institute
 ==============================
+
+Institute projects must be relevant and applicable to the current work
+and spirit of the Institute. The Institute revolves around
+understanding and improving:
+
+- the ways people interact with technology,
+- how users of technology build their own technology,
+- how technology shapes our lives, societies, and work.
+
+Existing project members and leaders evaluate new projects on a
+case-by-case basis, using factors that include relevance and available
+resources.
+
+See the ":doc:`contact`" page with more information on how to get in
+touch with institute leaders and contributors.

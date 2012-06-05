@@ -3,17 +3,47 @@ Projects in Development
 =======================
 
 This document contains an overview of projects that are in progress,
-or under heavy development. 
+or under heavy current development and have not offered a release'
 
-.. seealso:: ":doc:`projects`" for an overview of projects in the
-   development stage, and ":doc:`contact`" if you want to have your
-   project included in the Institute.
+.. seealso:: ":doc:`projects`" for an overview of actively developed
+   projects and projects released versions, and ":doc:`contact`" if
+   you want to have your project included in the Institute.
 
 CSC, Cyborg Site Compiler
 -------------------------
 
+``csc`` is a static site compiler in the tradition of Jekyll, Ikiwiki,
+and Sphinx. In brief the goals of this project are to:
+
+- focus on faster and more reliable incremental builds.
+
+- focus on generalizable content generation possibilities rather than
+  specific blog-like, wiki-like, or documentation-like output.
+
+- separate site generation, data aggregation, and build system
+  components into distinct stages and processes without needing to
+  share substantial state.
+
+The goal is that this system will be fast for generating sites,
+particularly with large numbers of pages. The design also permits
+extensible and flexibility with regards to filters and
+output. Fundamentally ``csc`` will be able to handle real-world
+workflows.
+
 Basic Computing for Cyborgs
 ---------------------------
 
-As a follow up to :projects:`Systems Administration for Cyborgs <cyborg-admin>`,
-this project will provide a basic Computer Literacy "
+As a follow up to :project:`Systems Administration for Cyborgs
+<cyborg-admin>`, this project will provide a basic introduction to
+fundamental computing concepts that all "cyborgs" ought to understand
+to obtain a functional "Literacy of Computing." The intended audience
+for this project are non- and less-technical users. Topics may
+include:
+
+- Networking Design and Components
+- Network Protocols and Layers
+- Software Development Methods
+- Application Architecture and Design
+- Programming and Coding
+- Infrastructure and Services
+- Interfaces and Users

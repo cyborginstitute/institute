@@ -1,3 +1,13 @@
 =========================================
 Contact *Cyborg Institute* Administrators
 =========================================
+
+To contact Sam Kleinman (tychoish,) send email to: "*sam at
+tychoish.com*".
+
+For most inquires about the Institute or its projects, please see the
+`institute listserv <http://lists.cyborginstitute.net/listinfo/institute>`_.
+
+Additionally, you can find many institute members on the
+``#institute`` channel on the `irc.oftc.net <irc.oftc.net>`_ IRC
+network.
