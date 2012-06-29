@@ -4,7 +4,7 @@ OUTPUT_FILE = "build/makefile.projects"
 
 THEME_NAME = "cyborg"
 
-SPHINX_TYPE = "dirhtml"
+SPHINX_TYPE = "publish"
 PROJECTS_DIR = "~/projects"
 
 project_info = [
@@ -34,7 +34,7 @@ def generate_build_info(project, build):
 
     if project == "institute":
         theme = ""
-    else: 
+    else:
         theme = (PROJECTS_DIR + project_path + "/themes/" + THEME_NAME +
                  ":" + PROJECTS_DIR + "/institute/themes/" + THEME_NAME)
 
@@ -61,7 +61,8 @@ def makefile_builders(build_info):
         item_build  = (TARGET + output + ":" + source +
                        JOB + "cp -R $< $@" +
                        TARGET + source + ":"  +
-                       JOB + "$(MAKE) -C " + command)
+                       JOB + "$(MAKE) -C " + command +
+                       JOB + "touch $@")
 
         if theme == "":
             theme_build = ""
@@ -95,7 +96,7 @@ def makefile_interactors(outputs, sources, themes):
 
     theme_target = "themes:"
     clean_theme = "clean-theme: " + JOB + "-rm -rf"
-    
+
     for theme in themes:
         theme_target = theme_target + " " + theme.split(":")[0]
         clean_theme = clean_theme + " " + theme.split(":")[0]
@@ -113,6 +114,7 @@ class InstituteMakefile():
 
         for (project, build) in project_info:
             self.build_info.append(generate_build_info(project, build))
+
 
         self.builders = makefile_builders(self.build_info)
         (self.outputs, self.sources, self.themes) = \

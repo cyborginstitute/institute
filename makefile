@@ -43,6 +43,8 @@ help:
 
 setup:$(PROJECTS_DIR)/output/issues $(BUILD_DIR) makefile.projects
 
+$(PROJECTS_DIR)/output/:makefile.projects
+	mkdir -p $@
 $(PROJECTS_DIR)/output/issues:
 	mkdir -p $@
 $(BUILD_DIR):
