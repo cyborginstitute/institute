@@ -12,7 +12,7 @@ project_info = [
     ("taskfile", True),
     ("stack", True),
     ("stl", True),
-    ("csc", True),
+#    ("csc", True),
     ("cyborg-admin", False),
     ("institute", False)
 ]
@@ -59,7 +59,8 @@ def makefile_builders(build_info):
 
     for (output, source, command, theme) in build_info:
         item_build  = (TARGET + output + ":" + source +
-                       JOB + "cp -R $< $@" +
+                       JOB + "mkdir -p $@" +
+                       JOB + "cp -R $</* $@" +
                        TARGET + source + ":"  +
                        JOB + "$(MAKE) -C " + command +
                        JOB + "touch $@")
@@ -76,6 +77,7 @@ def makefile_builders(build_info):
     return makefile_contents
 
 def makefile_interactors(outputs, sources, themes):
+    #    stage = "stage:" + PROJECTS_DIR + "/output build/makefile.projects "
     stage = "stage: setup "
 
     for output in outputs:

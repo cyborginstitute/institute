@@ -9,7 +9,9 @@ include makefile.docs
 
 BUILD_DIR = build
 PROJECTS_DIR = ~/projects
+PUBLISH_DIR = $(PROJECTS_DIR)/output
 SPHINX_TYPE = dirhtml
+
 
 ##
 ## Makefile boilerplate
@@ -54,8 +56,10 @@ $(BUILD_DIR):
 ## Meta-worker targets for building and migration
 ##
 
-push:themes deploy 
-	rsync -arz $(PUBLISHDIR) institute@foucault.cyborginstitute.net:/srv/www/cyborginstitute/public
+push:themes stage
+	rsync -arz $(PUBLISH_DIR)/ institute@foucault.cyborginstitute.net:/home/institute/public
+push-stage:themes stage
+	rsync -arz $(PUBLISH_DIR)/ institute@foucault.cyborginstitute.net:/home/institute/staging
 
 ##
 ## Force Rebuilders
