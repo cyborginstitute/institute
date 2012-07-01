@@ -18,13 +18,14 @@ always feel free to be in :doc:`contact <contact>`."
 Projects
 --------
 
-- :project:`Systems Administration for Cyborgs <cyborg-admin>` (a book-like-object.)
+- :project:`Systems Administration for Cyborgs <administration>` (a book-like-object.)
 - :project:`Taskfile <taskfile>` (a task list compiler.)
-- :project:`CSC <csc>` (an incremental static site compiler.)
 - :project:`Personal Stats Logger (stl) <stl>` (a script.)
 - :project:`tychoish's desktop configuration stack <stack>` (or
   simply, "stack," which is a collection of Emacs, StumpWM, and
   related configuration files.)
+
+.. - :project:`CSC <csc>` (an incremental static site compiler.)
 
 See ":doc:`projects`" for more information.
 

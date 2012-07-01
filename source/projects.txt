@@ -47,21 +47,22 @@ example makefile examples, a deployment guide, and documentation.
 .. _`ikiwiki`: http://ikiwiki.info
 .. _`Gollum`: https://github.com/github/gollum
 
-``csc``, the Cyborg Site Compiler
----------------------------------
+..
+   ``csc``, the Cyborg Site Compiler
+   ---------------------------------
 
-``csc`` springs from a collection of experiences with various
-available static site compilers. [#static-site-compilers]_ optimized
-for incremental builds, flexible indexing and page aggregation
-features.
+   ``csc`` springs from a collection of experiences with various
+   available static site compilers. [#static-site-compilers]_ optimized
+   for incremental builds, flexible indexing and page aggregation
+   features.
 
-- `csc project page and documentation <http://cyborginstitute.com/projects/csc>`_
-- `csc source repo <http://git.cyborginstitute.net/?p=csc.git>`_
-- `csc source repo on github <http://github.com/cyborginstitute/csc>`_
+   - `csc project page and documentation <http://cyborginstitute.com/projects/csc>`_
+   - `csc source repo <http://git.cyborginstitute.net/?p=csc.git>`_
+   - `csc source repo on github <http://github.com/cyborginstitute/csc>`_
 
-.. [#static-site-compilers] "Static Site Compilers" are tools that
-   generate websites based on templates and source files in a
-   lightweight markup language.
+   .. [#static-site-compilers] "Static Site Compilers" are tools that
+      generate websites based on templates and source files in a
+      lightweight markup language.
 
 stl, a Personal Logging Script
 ------------------------------
