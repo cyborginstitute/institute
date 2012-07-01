@@ -87,7 +87,7 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 extlinks = {
-    'project': ('http://cyborginstitute.org/projects/%s', ''),
+    'project': ('/projects/%s', ''),
     'institute': ('http://cyborginstitute.com/%s', ''),
     'issues': ('http://issues.cyborginstitute.com/%s', ''),
     'list': ('http://lists.cyborginstitute.com/listinfo/%s', ''),

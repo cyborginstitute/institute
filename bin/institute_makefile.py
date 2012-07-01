@@ -30,7 +30,8 @@ def generate_build_info(project, build):
 
     output = PROJECTS_DIR + "/output/" + project
     source = PROJECTS_DIR + project_path + "/build/" + SPHINX_TYPE
-    command = PROJECTS_DIR + project_path + " " + SPHINX_TYPE
+    command = PROJECTS_DIR + project_path + " "
+    base = PROJECTS_DIR + project_path + "/build/"
 
     if project == "institute":
         theme = ""
@@ -38,7 +39,7 @@ def generate_build_info(project, build):
         theme = (PROJECTS_DIR + project_path + "/themes/" + THEME_NAME +
                  ":" + PROJECTS_DIR + "/institute/themes/" + THEME_NAME)
 
-    item = (output, source, command, theme)
+    item = (output, source, command, theme, base)
 
     return item
 
@@ -47,7 +48,7 @@ def project_list(build_info):
     source_list = []
     theme_list = []
 
-    for (output, source, command, theme) in build_info:
+    for (output, source, command, theme, base) in build_info:
         output_list.append(output)
         source_list.append(source)
         theme_list.append(theme)
@@ -57,13 +58,18 @@ def project_list(build_info):
 def makefile_builders(build_info):
     makefile_contents = []
 
-    for (output, source, command, theme) in build_info:
-        item_build  = (TARGET + output + ":" + source +
+    for (output, source, command, theme, base) in build_info:
+        item_build  = (
+                       TARGET + output + ":" + source +
                        JOB + "mkdir -p $@" +
                        JOB + "cp -R $</* $@" +
                        TARGET + source + ":"  +
-                       JOB + "$(MAKE) -C " + command +
-                       JOB + "touch $@")
+                       JOB + "$(MAKE) -C " + command + SPHINX_TYPE +
+                       TARGET + source + ":"  + base + "dirhtml" + 
+                       TARGET + base + "dirhtml:" +
+                       JOB + "$(MAKE) -C " + command + "dirhtml" +
+                       JOB + "touch $@"
+                       )
 
         if theme == "":
             theme_build = ""
@@ -77,8 +83,8 @@ def makefile_builders(build_info):
     return makefile_contents
 
 def makefile_interactors(outputs, sources, themes):
-    #    stage = "stage:" + PROJECTS_DIR + "/output build/makefile.projects "
-    stage = "stage: setup "
+    stage = "stage: "
+    # stage = "stage: setup "
 
     for output in outputs:
         stage =  stage + output + " "
