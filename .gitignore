@@ -6,3 +6,4 @@
 build/*
 
 makefile.projects
+__pycache__

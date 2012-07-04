@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Cyborg Institute'
-copyright = u'2011, Sam Kleinman'
+copyright = u'2011, Contributors to the Cyborg Institute'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
