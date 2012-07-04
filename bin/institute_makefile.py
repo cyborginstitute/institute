@@ -1,21 +1,14 @@
 #!/usr/bin/python
 
+import os.path
+from institute_config import project_info
+
 OUTPUT_FILE = "build/makefile.projects"
 
 THEME_NAME = "cyborg"
 
 SPHINX_TYPE = "publish"
 PROJECTS_DIR = "~/projects"
-
-project_info = [
-  # ( project, has-docs-dir ),
-    ("taskfile", True),
-    ("stack", True),
-    ("stl", True),
-#    ("csc", True),
-    ("cyborg-admin", False),
-    ("institute", False)
-]
 
 JOB = "\n\t"
 TARGET = "\n"
@@ -30,7 +23,7 @@ def generate_build_info(project, build):
 
     output = PROJECTS_DIR + "/output/" + project
     source = PROJECTS_DIR + project_path + "/build/" + SPHINX_TYPE
-    command = PROJECTS_DIR + project_path + " "
+    command = PROJECTS_DIR + project_path
     base = PROJECTS_DIR + project_path + "/build/"
 
     if project == "institute":
@@ -63,31 +56,41 @@ def makefile_builders(build_info):
                        TARGET + output + ":" + source +
                        JOB + "mkdir -p $@" +
                        JOB + "cp -R $</* $@" +
-                       TARGET + source + ":"  +
-                       JOB + "$(MAKE) -C " + command + SPHINX_TYPE +
-                       TARGET + source + ":"  + base + "dirhtml" + 
+                       JOB + "touch $< " + command + "/source/index.txt" +
+                       TARGET + source + ":" + base + " dirhtml" +
+                       JOB + "$(MAKE) -C " + command + " " + SPHINX_TYPE +
+                       TARGET + source + ":"  + base + "dirhtml" +
                        TARGET + base + "dirhtml:" +
-                       JOB + "$(MAKE) -C " + command + "dirhtml" +
-                       JOB + "touch $@"
-                       )
+                       JOB + "$(MAKE) -C " + command + " dirhtml"
+                      )
 
         if theme == "":
             theme_build = ""
         else:
             theme_build = (TARGET + theme +
                            JOB + "mkdir -p $@" +
-                           JOB + "cp -R $</* $@")
+                           JOB + "cp -R $</* $@" +
+                           TARGET + command + "/makefile.docs:" + PROJECTS_DIR + "/institute/makefile.docs" +
+                           JOB + "cp $< $@"
+                          )
 
         makefile_contents.append(item_build + theme_build + "\n\n")
 
     return makefile_contents
 
+def root_path_munger(path):
+    munge = path.split('/')
+    munge.pop(-1)
+    munge.pop(-1)
+    o = os.path.join(*munge)
+
+    return o
+
 def makefile_interactors(outputs, sources, themes):
     stage = "stage: "
-    # stage = "stage: setup "
 
     for output in outputs:
-        stage =  stage + output + " "
+        stage = stage + output + " "
 
     rebuild = "rebuild: "
     clean_all = ("clean-all:" +
@@ -104,15 +107,20 @@ def makefile_interactors(outputs, sources, themes):
 
     theme_target = "themes:"
     clean_theme = "clean-theme: " + JOB + "-rm -rf"
+    buildsystem = "buildsystem:"
 
     for theme in themes:
-        theme_target = theme_target + " " + theme.split(":")[0]
-        clean_theme = clean_theme + " " + theme.split(":")[0]
+        mtheme = theme.split(":")[0]
+        theme_target = theme_target + " " + mtheme
+        clean_theme = clean_theme + " " + mtheme
+        if len(mtheme) > 0: 
+            buildsystem = buildsystem + root_path_munger(mtheme) + "/makefile.docs "
 
+       
     theme_target = theme_target + "\n\n"
     clean_theme = clean_theme + "\n\n"
-
-    return stage, rebuild, clean_all, theme_target, clean_theme
+    buildsystem = buildsystem + "\n\n"
+    return stage, rebuild, clean_all, theme_target, clean_theme, buildsystem
 
 ########################################################################
 
@@ -123,13 +131,14 @@ class InstituteMakefile():
         for (project, build) in project_info:
             self.build_info.append(generate_build_info(project, build))
 
-
         self.builders = makefile_builders(self.build_info)
-        (self.outputs, self.sources, self.themes) = \
-          project_list(self.build_info)
+        (self.outputs, self.sources, self.themes) = project_list(self.build_info)
 
-        (self.stage, self.rebuild, self.clean_all, self.themes, self.clean_theme) = \
-          makefile_interactors(self.outputs, self.sources, self.themes)
+        (self.stage, self.rebuild, 
+         self.clean_all, self.themes, 
+         self.clean_theme, 
+         self.buildsystem) = makefile_interactors(self.outputs, self.sources,
+                                                  self.themes)
 
 makefile = InstituteMakefile()
 
@@ -138,11 +147,11 @@ makefile = InstituteMakefile()
 def main():
     output = open(OUTPUT_FILE, "w")
 
-    output.write(makefile.rebuild)
-
     for line in makefile.builders:
         output.write(line)
 
+    output.write(makefile.buildsystem)
+    output.write(makefile.rebuild)
     output.write(makefile.stage)
     output.write(makefile.themes)
     output.write(makefile.clean_theme)

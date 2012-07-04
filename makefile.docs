@@ -1,3 +1,17 @@
+# Internal variables.
+PAPEROPT_a4	= -D latex_paper_size=a4
+PAPEROPT_letter = -D latex_paper_size=letter
+ALLSPHINXOPTS = -q -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
+
+ifeq ($(UNAME), Linux)
+SED_ARGS_FILE = -i -r
+SED_ARGS_REGEX = -r
+endif
+ifeq ($(UNAME), Darwin)
+SED_ARGS_FILE = -i "" -E
+SED_ARGS_REGEX = -E
+endif
+
 # Makefile for Sphinx documentation
 #
 
@@ -6,30 +20,6 @@ SPHINXOPTS    = -c ./
 SPHINXBUILD   = sphinx-build
 PAPER	      =
 BUILDDIR      = build
-
-# Internal variables.
-PAPEROPT_a4	= -D latex_paper_size=a4
-PAPEROPT_letter = -D latex_paper_size=letter
-ALLSPHINXOPTS	= -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
-
-# 
-# Publication system
-#
-
-publish: $(BUILDDIR)/publish
-
-$(BUILDDIR)/dirhtml:dirhtml
-# $(BUILDDIR)/latex/institute.tex:latex
-# $(BUILDDIR)/epub/institute.epub:epub
-# $(BUILDDIR)/latex/institute.pdf:$(BUILDDIR)/latex/institute.tex
-# $(BUILDDIR)/publish/institute.epub:$(BUILDDIR)/epub/institute.epub
-# 	cp $< $@
-$(BUILDDIR)/publish:$(BUILDDIR)/dirhtml
-	mkdir -p $@ 
-	cp -R $</* $@
-$(BUILDDIR)/publish/institute.pdf:$(BUILDDIR)/latex/institute.pdf
-	cp $< $@
-
 
 #
 # PDF Build System

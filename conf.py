@@ -98,7 +98,7 @@ extlinks = {
 
 # -- Options for HTML output ---------------------------------------------------
 
-git_name = 'cyborg-admin'
+git_name = 'institute'
 
 html_theme_options = { 'project': git_name }
 
