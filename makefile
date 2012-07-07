@@ -38,6 +38,7 @@ help:
 ##
 
 setup:$(PROJECTS_DIR)/output/issues $(BUILDDIR) build/makefile.projects
+	@python bin/configure_repos.py
 
 build/makefile.projects:bin/institute_makefile.py
 	@python $<

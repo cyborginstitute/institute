@@ -24,9 +24,8 @@ def init_queues(project_info):
 def git_operation(name, op="pull"):
     command = "git " + op + "> /dev/null"
 
-    print(op + " " + name + " started")
     subprocess.call(command, shell=True)
-    print(op + " " + name + " complete")
+    print("[repo] " + name + " " + op + " complete")
 
 def github_check(project, project_dir, add_remote=False):
     os.chdir(project_dir)
@@ -51,7 +50,7 @@ def worker():
 def main():
     init_queues(project_info)
     worker()
-    print("universe up to date")
+    print("[repo] universe up to date")
 
 if __name__ == "__main__":
     main()
