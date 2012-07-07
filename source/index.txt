@@ -64,6 +64,7 @@ Pages
    projects
    in-progress
    contact
+   license
 
 .. toctree::
    :hidden:
