@@ -59,6 +59,7 @@ push:themes stage
 	rsync -arz $(PUBLISH_DIR)/ institute@foucault.cyborginstitute.net:/home/institute/public
 push-stage:themes stage
 	rsync -arz $(PUBLISH_DIR)/ institute@foucault.cyborginstitute.net:/home/institute/staging
+stage-push:push-stage
 
 
 ##

@@ -56,8 +56,8 @@ def makefile_builders(build_info):
                        TARGET + output + ":" + source +
                        JOB + "mkdir -p $@" +
                        JOB + "cp -R $</* $@" +
-                       JOB + "touch $< " + command + "/source/index.txt" +
-                       TARGET + source + ":" + base + " dirhtml" +
+                       JOB + "touch " + command + "/source/index.txt" +
+                       TARGET + source + ":" + base + "dirhtml" +
                        JOB + "$(MAKE) -C " + command + " " + SPHINX_TYPE +
                        TARGET + source + ":"  + base + "dirhtml" +
                        TARGET + base + "dirhtml:" +

@@ -10,6 +10,7 @@ repo_source = " gitosis@foucault.cyborginstitute.net:"
 clone_queue = []
 update_queue = []
 github_queue = []
+general_queue = []
 
 def init_queues(project_info):
     for project, config in project_info:
@@ -21,8 +22,9 @@ def init_queues(project_info):
             clone_queue.append((project, repo_source + project + ".git"))
             github_queue.append((project, project_dir))
 
+
 def git_operation(name, op="pull"):
-    command = "git " + op + "> /dev/null"
+    command = "git " + op + " >/dev/null"
 
     subprocess.call(command, shell=True)
     print("[repo] " + name + " " + op + " complete")
@@ -33,6 +35,8 @@ def github_check(project, project_dir, add_remote=False):
 
     if not "github" in remotes:
         github_queue.append((project, project_dir))
+    else:
+        general_queue.append((project, project_dir))
 
 def worker():
     for name, command in clone_queue:
@@ -46,6 +50,10 @@ def worker():
     for name, project_dir in update_queue:
         os.chdir(project_dir)
         git_operation(name)
+    for name, project_dir in general_queue:
+        os.chdir(project_dir)
+        git_operation("pushing changes to gitub for " + name,
+                      "push github")
 
 def main():
     init_queues(project_info)
