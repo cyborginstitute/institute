@@ -28,9 +28,9 @@ required skills for systems administration.
 
 For more information:
 
-- `Systems Administration for Cyborgs <http://cyborginstitute.com/projects/cyborg-admin>`_
-- `SAfC source repo <http://git.cyborginstitute.net/?p=cyborg-admin.git>`_
-- `SAfC source repo on github <http://github.com/cyborginstitute/cyborg-admin>`_
+- `Systems Administration for Cyborgs <http://cyborginstitute.com/projects/administration>`_
+- `SAfC source repo <http://git.cyborginstitute.net/?p=administration.git>`_
+- `SAfC source repo on github <http://github.com/cyborginstitute/administration>`_
 
 Taskfile
 --------
