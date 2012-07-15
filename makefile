@@ -21,15 +21,15 @@ SPHINX_TYPE = dirhtml
 help:
 	@echo "Use the following targets to build and deploy the Cyborg Institute:"
 	@echo ""
-	@echo "    rebuild        - rebuild all institute sites."
-	@echo "    stage          - stage a deployments of the Institute content."
-	@echo "    push           - move all updated content to the production environment."
-	@echo "    push-stage     - move all updated content to the live staging environment."
-	@echo "    themes         - reimport themes to all Institute projects (as needed.)"
+	@echo "	   rebuild	  - rebuild all institute sites."
+	@echo "	   stage	  - stage a deployments of the Institute content."
+	@echo "	   push		  - move all updated content to the production environment."
+	@echo "	   push-stage	  - move all updated content to the live staging environment."
+	@echo "	   themes	  - reimport themes to all Institute projects (as needed.)"
 	@echo ""
-	@echo "    clean          - remove $(BUILDDIR)/ and its contents."
-	@echo "    clean-all      - remove $(PUBLISH_DIR)/ and build directories for all projects."
-	@echo "    clean-theme    - remove theme files for all institute projects."
+	@echo "	   clean	  - remove $(BUILDDIR)/ and its contents."
+	@echo "	   clean-all	  - remove $(PUBLISH_DIR)/ and build directories for all projects."
+	@echo "	   clean-theme	  - remove theme files for all institute projects."
 	@echo ""
 	@echo "Note: all default Sphinx targets are avalible."
 
@@ -76,10 +76,11 @@ $(BUILDDIR)/dirhtml:dirhtml
 # $(BUILDDIR)/epub/institute.epub:epub
 # $(BUILDDIR)/latex/institute.pdf:$(BUILDDIR)/latex/institute.tex
 # $(BUILDDIR)/publish/institute.epub:$(BUILDDIR)/epub/institute.epub
-# 	cp $< $@
+#	cp $< $@
 $(BUILDDIR)/publish:$(BUILDDIR)/dirhtml
-	mkdir -p $@ 
+	mkdir -p $@
 	cp -R $</* $@
+	touch $@
 $(BUILDDIR)/publish/institute.pdf:$(BUILDDIR)/latex/institute.pdf
 	cp $< $@
 
