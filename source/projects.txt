@@ -13,6 +13,7 @@ technical audiences to basic systems administration concepts and
 problem domains.
 
 *Systems Administration for Cyobrgs* addresses topics that include:
+
 - database scaling,
 - monitoring,
 - high availability,
