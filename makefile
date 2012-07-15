@@ -37,7 +37,7 @@ help:
 ## Setup and dependency establishment
 ##
 
-setup:$(PROJECTS_DIR)/output/issues $(BUILDDIR) build/makefile.projects
+setup:issues  $(BUILDDIR) build/makefile.projects
 	@python bin/configure_repos.py
 
 build/makefile.projects:bin/institute_makefile.py
@@ -48,6 +48,9 @@ $(PROJECTS_DIR)/output/:makefile.projects
 	mkdir -p $@
 $(PROJECTS_DIR)/output/issues:
 	mkdir -p $@
+$(PROJECTS_DIR)/output/issues/index.html:issues/index.html
+	cp $< $@
+issues:$(PROJECTS_DIR)/output/issues $(PROJECTS_DIR)/output/issues/index.html
 $(BUILDDIR):
 	mkdir $@
 
