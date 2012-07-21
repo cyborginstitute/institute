@@ -53,10 +53,6 @@ def makefile_builders(build_info):
 
     for (output, source, command, theme, base) in build_info:
         item_build  = (
-                       TARGET + output + ":" + source +
-                       JOB + "mkdir -p $@" +
-                       JOB + "cp -R $</* $@" +
-                       JOB + "touch " + command + "/source/index.txt" +
                        TARGET + source + ":" + base + "dirhtml" +
                        JOB + "$(MAKE) -C " + command + " " + SPHINX_TYPE +
                        TARGET + source + ":"  + base + "dirhtml" +
@@ -67,7 +63,12 @@ def makefile_builders(build_info):
         if theme == "":
             theme_build = ""
         else:
-            theme_build = (TARGET + theme +
+            theme_build = (
+                           TARGET + output + ":" + source +
+                           JOB + "mkdir -p $@" +
+                           JOB + "cp -R $</* $@" +
+                           JOB + "touch " + command + "/source/index.txt" +
+                           TARGET + theme +
                            JOB + "mkdir -p $@" +
                            JOB + "cp -R $</* $@" +
                            TARGET + command + "/makefile.docs:" + PROJECTS_DIR + "/institute/makefile.docs" +

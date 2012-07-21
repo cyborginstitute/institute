@@ -22,6 +22,22 @@ PAPER	      =
 BUILDDIR      = build
 
 #
+# Incremental Push and Publication System
+#
+
+SITESTAGE = ~/projects/output
+STAGEDIR = $(subst projects,projects/output,$(CURDIR))
+
+project-push:$(STAGEDIR)
+	rsync -arz $(SITESTAGE)/ institute@foucault.cyborginstitute.net:/home/institute/public
+project-stage:$(STAGEDIR)
+	rsync -arz $(SITESTAGE)/ institute@foucault.cyborginstitute.net:/home/institute/staging
+$(STAGEDIR):$(BUILDDIR)/publish
+	mkdir -p $@
+	cp -R $</* $@
+	touch $(CURDIR)/source/index.txt
+
+#
 # PDF Build System
 #
 
@@ -42,7 +58,7 @@ PDFLATEXCOMMAND = TEXINPUTS=".:$(BUILDDIR)/latex/:" pdflatex --interaction batch
 
 ########################################################################
 
-.PHONY:  clean html dirhtml singlehtml epub latex text man publish
+.PHONY:	 clean html dirhtml singlehtml epub latex text man publish
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html

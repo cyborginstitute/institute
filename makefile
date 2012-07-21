@@ -3,7 +3,6 @@
 ##
 ## (Note: bin/institute_makefile.py specifies similar variables seperatly)
 ##
-
 include makefile.docs
 -include build/makefile.projects
 
@@ -66,21 +65,21 @@ stage-push:push-stage
 
 
 ##
-## Institute Site publication system
+## Institute Site Specific publication system
 ##
 
-publish: $(BUILDDIR)/publish
-
-$(BUILDDIR)/dirhtml:dirhtml
 # $(BUILDDIR)/latex/institute.tex:latex
 # $(BUILDDIR)/epub/institute.epub:epub
 # $(BUILDDIR)/latex/institute.pdf:$(BUILDDIR)/latex/institute.tex
 # $(BUILDDIR)/publish/institute.epub:$(BUILDDIR)/epub/institute.epub
 #	cp $< $@
+
+$(BUILDDIR)/dirhtml:dirhtml
 $(BUILDDIR)/publish:$(BUILDDIR)/dirhtml
 	mkdir -p $@
 	cp -R $</* $@
-	touch $@
+	touch $(CURDIR)/source/index.html
+
 $(BUILDDIR)/publish/institute.pdf:$(BUILDDIR)/latex/institute.pdf
 	cp $< $@
 
