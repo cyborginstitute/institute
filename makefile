@@ -57,12 +57,25 @@ $(BUILDDIR):
 ## Meta-worker targets for building and migration
 ##
 
-push:themes stage
+push:themes stage $(PUBLISH_DIR)/administration/sitemap.xml.gz $(PUBLISH_DIR)/institute/sitemap.xml.gz
 	rsync -arz $(PUBLISH_DIR)/ institute@foucault.cyborginstitute.net:/home/institute/public
 push-stage:themes stage
 	rsync -arz $(PUBLISH_DIR)/ institute@foucault.cyborginstitute.net:/home/institute/staging
 stage-push:push-stage
 
+## 
+## Sitemap Builders
+##
+
+.PHONY: sitemap $(PUBLISH_DIR)/administration/sitemap.xml.gz $(PUBLISH_DIR)/institute/sitemap.xml.gz
+
+sitemap:
+$(PUBLISH_DIR)/administration/sitemap.xml.gz:
+	@python2 bin/sitemap_gen.py --config=bin/sitemap-admin.conf --testing  >/dev/null 2>&1
+	@echo [build]: sitemap generated for administration
+$(PUBLISH_DIR)/institute/sitemap.xml.gz:
+	@python2 bin/sitemap_gen.py --config=bin/sitemap-institute.conf --testing  >/dev/null 2>&1
+	@echo [build]: sitemap generated for institute
 
 ##
 ## Institute Site Specific publication system
