@@ -36,10 +36,10 @@ Resources
   Provides :term:`git` hosting and mirrors to institute projects and
   related efforts.
 
-- `lists.cyborginstitue.net <http://lists.cyborginstitute.net/>`_
+- `lists.cyborginstitute.net <http://lists.cyborginstitute.net/>`_
   E-mail listservs for Institute use and projects.
 
-- `issues.cyborginstitue.net <http://issues.cyborginstitute.net/>`_
+- `issues.cyborginstitute.net <http://issues.cyborginstitute.net/>`_
   (*forthcoming*): Provides issue tracking references and links for
   Institute projects.
 
