@@ -141,11 +141,11 @@ class InstituteMakefile():
          self.buildsystem) = makefile_interactors(self.outputs, self.sources,
                                                   self.themes)
 
-makefile = InstituteMakefile()
-
 ########################################################################
 
 def main():
+    makefile = InstituteMakefile()
+
     output = open(OUTPUT_FILE, "w")
 
     for line in makefile.builders:
