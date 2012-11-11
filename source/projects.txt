@@ -20,8 +20,8 @@ problem domains.
 - backups,
 - dev-ops,
 - production/testing environments,
-- web services,
-- and "the cloud."
+- web services, and
+- "the cloud."
 
 Additionally several chapters provide an overview of the history of
 contemporary technology as well as the basic strategy, tactics, and

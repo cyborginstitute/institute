@@ -2,6 +2,9 @@
 Participating in the Institute
 ==============================
 
+Goals
+-----
+
 Institute projects must be relevant and applicable to the current work
 and spirit of the Institute. The Institute revolves around
 understanding and improving:
@@ -14,5 +17,11 @@ Existing project members and leaders evaluate new projects on a
 case-by-case basis, using factors that include relevance and available
 resources.
 
+Additional Resources
+--------------------
+
 See the ":doc:`contact`" page with more information on how to get in
 touch with institute leaders and contributors.
+
+Furthermore, see constituent projects for more information about
+contributing to specific ongoing efforts.
