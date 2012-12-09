@@ -33,20 +33,38 @@ For more information:
 - `SAfC source repo <http://git.cyborginstitute.net/?p=administration.git>`_
 - `SAfC source repo on github <http://github.com/cyborginstitute/administration>`_
 
-Taskfile
---------
+stl, a Personal Logging Script
+------------------------------
 
-Using `GNU Make <http://www.gnu.org/software/make/>`_ provides a way
-to compile lists of ``TODO`` items from a tree of files, such as those
-created by a flat-file wiki like `ikiwiki`_ or `Gollum`_. Includes
-example makefile examples, a deployment guide, and documentation.
+``stl`` (i.e. "stats logger") is a tool for managing, maintaining,
+and logging work for writers. It provides a unified interface around
+logging word count information, as well as compiling projects, and
+other related functionality. If you publish text using software such
+as `ikiwiki`_, `Sphinx`_, or using ad hoc Makefiles, ``stl`` may do
+exactly what you want.
 
-- `Taskfile project page and documentation <http://cyborginstitute.com/projects/taskfile>`_
-- `Taskfile source repo <http://git.cyborginstitute.net/?p=tasfile.git>`_
-- `Taskfile source repo on github <http://github.com/cyborginstitute/taskfile/>`_
+- `stl project page <http://cyborginstitute.com/projects/stl>`_
+- `stl source repo <http://git.cyborginstitute.net/?p=stl.git>`_
+- `stl source repo on github <http://github.com/cyborginstitute/stl>`_
 
-.. _`ikiwiki`: http://ikiwiki.info
-.. _`Gollum`: https://github.com/github/gollum
+.. _`Sphinx`: http://sphinx.pocoo.org/
+
+
+Buildfile Generator, a Makefile Automation
+------------------------------------------
+
+Buildfile Generator is a simple lightweight interface to generate
+Makefiles by writing Python code. Buildfile doesn't have any specific
+"knowledge" of how to process any specific input or output file. build
+any specific kind of file, and is generic with regards to the kinds of
+build processes it is applicable. From a high level, exists to make:
+potentially complex or repetitive build systems more manageable,
+maintainable, and clear than would be otherwise possible using native
+Make syntax, with more flexibility than you would have with a
+Make-replacement.
+
+- :doc:`/projects/buildfile`
+- `github buildfile-generator repository <http://github.com/tychoish/buildfile-generator>`_
 
 ..
    ``csc``, the Cyborg Site Compiler
@@ -65,22 +83,6 @@ example makefile examples, a deployment guide, and documentation.
       generate websites based on templates and source files in a
       lightweight markup language.
 
-stl, a Personal Logging Script
-------------------------------
-
-``stl`` (i.e. "stats logger") is a tool for managing, maintaining,
-and logging work for writers. It provides a unified interface around
-logging word count information, as well as compiling projects, and
-other related functionality. If you publish text using software such
-as `ikiwiki`_, `Sphinx`_, or using ad hoc Makefiles, ``stl`` may do
-exactly what you want.
-
-- `stl project page <http://cyborginstitute.com/projects/stl>`_
-- `stl source repo <http://git.cyborginstitute.net/?p=stl.git>`_
-- `stl source repo on github <http://github.com/cyborginstitute/stl>`_
-
-.. _`Sphinx`: http://sphinx.pocoo.org/
-
 Desktop Configuration Stack
 ---------------------------
 
@@ -92,3 +94,19 @@ configuration.
 - `Stack project page <http://cyborginstitute.com/projects/stack>`_
 - `Stack source repo <http://git.cyborginstitute.net/?p=stack.git>`_
 - `Stack source repo on github <http://github.com/tychoish/stack>`_
+
+Taskfile
+--------
+
+Using `GNU Make <http://www.gnu.org/software/make/>`_ provides a way
+to compile lists of ``TODO`` items from a tree of files, such as those
+created by a flat-file wiki like `ikiwiki`_ or `Gollum`_. Includes
+example makefile examples, a deployment guide, and documentation.
+
+- `Taskfile project page and documentation <http://cyborginstitute.com/projects/taskfile>`_
+- `Taskfile source repo <http://git.cyborginstitute.net/?p=tasfile.git>`_
+- `Taskfile source repo on github <http://github.com/cyborginstitute/taskfile/>`_
+
+.. _`ikiwiki`: http://ikiwiki.info
+.. _`Gollum`: https://github.com/github/gollum
+

@@ -2,6 +2,7 @@
 
 import os.path
 from institute_config import project_info
+from makefile_builder import MakefileBuilder
 
 OUTPUT_FILE = "build/makefile.projects"
 
@@ -29,8 +30,8 @@ def generate_build_info(project, build):
     if project == "institute":
         theme = ""
     else:
-        theme = (PROJECTS_DIR + project_path + "/themes/" + THEME_NAME +
-                 ":" + PROJECTS_DIR + "/institute/themes/" + THEME_NAME)
+        theme = (PROJECTS_DIR + project_path + "/themes/" + THEME_NAME,
+                 PROJECTS_DIR + "/institute/themes/" + THEME_NAME)
 
     item = (output, source, command, theme, base)
 
@@ -49,35 +50,43 @@ def project_list(build_info):
     return output_list, source_list, theme_list
 
 def makefile_builders(build_info):
-    makefile_contents = []
+
+    m = MakefileBuilder()
 
     for (output, source, command, theme, base) in build_info:
-        item_build  = (
-                       TARGET + source + ":" + base + "dirhtml" +
-                       JOB + "$(MAKE) -C " + command + " " + SPHINX_TYPE +
-                       TARGET + source + ":"  + base + "dirhtml" +
-                       TARGET + base + "dirhtml:" +
-                       JOB + "$(MAKE) -C " + command + " dirhtml"
-                      )
+        m.section_break(command)
+        m.target(source, base + 'dirhtml')
+        m.job('$(MAKE) -C ' + command + ' ' + SPHINX_TYPE)
+        m.msg('[institute]: building ' + SPHINX_TYPE + 'build taks in ' + command)
+        m.target(base + 'dirhtml')
+        m.job('$(MAKE) -C ' + command + ' dirhtml')
+        m.msg('[dirhtml]: building in ' + command)
 
         if theme == "":
-            theme_build = ""
+            pass
         else:
-            theme_build = (
-                           TARGET + output + ":" + source +
-                           JOB + "mkdir -p $@" +
-                           JOB + "cp -R $</* $@" +
-                           JOB + "touch " + command + "/source/index.txt" +
-                           TARGET + theme +
-                           JOB + "mkdir -p $@" +
-                           JOB + "cp -R $</* $@" +
-                           TARGET + command + "/makefile.docs:" + PROJECTS_DIR + "/institute/makefile.docs" +
-                           JOB + "cp $< $@"
-                          )
+            m.target(output, source)
+            m.job('mkdir -p $@')
+            m.msg('[build]: created $@')
+            m.job('cp -R $</* $@')
+            m.msg('[build]: migrated $< to $@')
+            m.job('touch ' + command + '/source/index.txt')
+            m.msg('[build]: touching /source/index.txt to ensure a clean build')
 
-        makefile_contents.append(item_build + theme_build + "\n\n")
 
-    return makefile_contents
+            m.comment('theme building instructions')
+            m.target(theme[0], theme[1])
+            m.job('mkdir -p $@')
+            m.msg('[theme]: created $@')
+            m.job('cp -R $</* $@')
+            m.msg('[theme]: migrated $< to $@')
+            
+            m.comment('keeping the sphinx build system unified for ' + theme[0], block='second')
+            m.target(command + "/makefile.docs", PROJECTS_DIR + "/institute/makefile.docs", block='second')
+            m.job('cp $< $@', block='second')
+            m.msg('[buildsysystem]: migrated $< to $@', block='second')
+
+    return m.makefile
 
 def root_path_munger(path):
     munge = path.split('/')
@@ -110,12 +119,11 @@ def makefile_interactors(outputs, sources, themes):
     clean_theme = "clean-theme: " + JOB + "-rm -rf"
     buildsystem = "buildsystem:"
 
-    for theme in themes:
-        mtheme = theme.split(":")[0]
-        theme_target = theme_target + " " + mtheme
-        clean_theme = clean_theme + " " + mtheme
-        if len(mtheme) > 0: 
-            buildsystem = buildsystem + root_path_munger(mtheme) + "/makefile.docs "
+    for theme in [ theme for theme in themes if theme is not '' ]:
+        theme_target = theme_target + " " + theme[0]
+        clean_theme = clean_theme + " " + theme[0]
+        if len(theme[0]) > 0: 
+            buildsystem = buildsystem + root_path_munger(theme[0]) + "/makefile.docs "
 
        
     theme_target = theme_target + "\n\n"
@@ -159,6 +167,7 @@ def main():
     output.write(makefile.clean_all)
 
     output.close()
+    
 
 if __name__ == "__main__":
     main()
