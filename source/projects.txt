@@ -49,7 +49,6 @@ exactly what you want.
 
 .. _`Sphinx`: http://sphinx.pocoo.org/
 
-
 Buildfile Generator, a Makefile Automation
 ------------------------------------------
 

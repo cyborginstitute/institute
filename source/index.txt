@@ -69,4 +69,5 @@ Pages
 .. toctree::
    :hidden:
 
+   projects/buildfile
    ref
