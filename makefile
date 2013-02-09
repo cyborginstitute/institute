@@ -36,13 +36,22 @@ help:
 ## Setup and dependency establishment
 ##
 
-setup:issues $(BUILDDIR) build/makefile.projects source/projects/buildfile.txt
+setup:issues $(BUILDDIR) github build/makefile.projects source/projects/csc.txt source/projects/buildfile.txt source/projects/dtf.txt
+github:
 	@python bin/configure_repos.py
 build/makefile.projects:bin/institute_makefile.py
 	@python $<
 	@echo "[build] regenerated $@"
 .PHONY:source/projects/buildfile.txt 
 source/projects/buildfile.txt:../buildfile-generator/README.rst
+	@mkdir -p source/projects/
+	@cp $< $@
+	@echo "[build]: imported $@ from project README"
+source/projects/csc.txt:../csc/README.rst
+	@mkdir -p source/projects/
+	@cp $< $@
+	@echo "[build]: imported $@ from project README"
+source/projects/dtf.txt:../dtf/README.rst
 	@mkdir -p source/projects/
 	@cp $< $@
 	@echo "[build]: imported $@ from project README"
