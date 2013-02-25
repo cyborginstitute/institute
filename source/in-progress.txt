@@ -27,11 +27,14 @@ and Sphinx. In brief the goals of this project are to:
 The goal is that this system will be fast for generating sites,
 particularly with large numbers of pages. The design also permits
 extensible and flexibility with regards to filters and
-output. Fundamentally ``csc`` will be able to handle real-world
+output. Most importantly, ``csc`` will be able to handle real-world
 workflows.
 
-Basic Computing for Cyborgs
----------------------------
+See :doc:`/projects/csc` for the working documentation for the initial
+development version of ``csc``.
+
+Computing for Cyborgs
+---------------------
 
 As a follow up to :project:`Systems Administration for Cyborgs
 <cyborg-admin>`, this project will provide a basic introduction to
