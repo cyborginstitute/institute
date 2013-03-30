@@ -4,6 +4,7 @@ project_info = [
     ("stack", True),
     ("stl", True),
     ("dtf", True),
+    ("buildcloth", True),
 #    ("csc", True),
     ("administration", False),
 #     ("computing", False),

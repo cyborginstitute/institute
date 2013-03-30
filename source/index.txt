@@ -20,8 +20,8 @@ Projects
 
 - :project:`Systems Administration for Cyborgs <administration>` (a book-like-object.)
 - :doc:`csc </projects/csc>` (an incremental static site compiler.)
-- :doc:`buildfile </projects/buildfile>` (a makefile generator tool.)
-- :doc:`dtf </projects/dtf>` (a generic documenation testing framework.)
+- :doc:`buildcloth </projects/buildcloth>` (a makefile generator tool.)
+- :project:`dtf <dtf>` (a generic documentation testing framework.)
 - :project:`Taskfile <taskfile>` (a task list compiler.)
 - :project:`Personal Stats Logger (stl) <stl>` (a script.)
 - :project:`tychoish's desktop configuration stack <stack>` (or
@@ -53,7 +53,7 @@ Related Projects
 - `Critical Futures <http://criticalfutures.com>`_: Science Fiction
   and Literary projects and experimental publishing.
 
-- `Outer Aliance Wiki <http://oa.criticalfutures.com/>`_: The wiki of
+- `Outer Alliance Wiki <http://oa.criticalfutures.com/>`_: The wiki of
   `the Outer Alliance <http://outeralliance.org>`_.
 
 Pages
@@ -70,6 +70,6 @@ Pages
 .. toctree::
    :hidden:
 
-   projects/buildfile
+   projects/buildcloth
    projects/csc
    ref
