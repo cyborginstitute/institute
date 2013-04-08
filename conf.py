@@ -28,7 +28,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Cyborg Institute'
-copyright = u'2011-2012, Contributors to the Cyborg Institute'
+copyright = u'2011-2013, Contributors to the Cyborg Institute'
 
 version = '1.0'
 release = version

@@ -36,7 +36,7 @@ help:
 ## Setup and dependency establishment
 ##
 
-setup:issues $(BUILDDIR) github build/makefile.projects source/projects/csc.txt source/projects/buildfile.txt source/projects/dtf.txt
+setup:issues $(BUILDDIR) github build/makefile.projects source/projects/csc.txt
 github:
 	@python bin/configure_repos.py
 build/makefile.projects:bin/institute_makefile.py
