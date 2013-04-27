@@ -20,7 +20,7 @@ Projects
 
 - :project:`Systems Administration for Cyborgs <administration>` (a book-like-object.)
 - :doc:`csc </projects/csc>` (an incremental static site compiler.)
-- :doc:`buildcloth </projects/buildcloth>` (a makefile generator tool.)
+- :project:`buildcloth <buildcloth>` (a makefile generator tool.)
 - :project:`dtf <dtf>` (a generic documentation testing framework.)
 - :project:`Taskfile <taskfile>` (a task list compiler.)
 - :project:`Personal Stats Logger (stl) <stl>` (a script.)
@@ -70,6 +70,6 @@ Pages
 .. toctree::
    :hidden:
 
-   projects/buildcloth
+   projects/rstcloth
    projects/csc
    ref

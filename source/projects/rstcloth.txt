@@ -1,0 +1,11 @@
+======================
+reStructuredText Cloth
+======================
+
+A simple Python API for producing restructured text.
+
+*In progress.*
+
+- `rstcloth on Pypi <https://pypi.python.org/pypi/rstcloth/>`_
+- `rstcloth repository <http://git.cyborginstitute.net/?p=rstcloth.git;a=summary>`_
+- `rstcloth github <http://github.com/cyborginstitute/rstcloth/>`_
