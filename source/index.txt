@@ -18,15 +18,23 @@ always feel free to be in :doc:`contact <contact>`."
 Projects
 --------
 
+Current/Active: 
+
 - :project:`Systems Administration for Cyborgs <administration>` (a book-like-object.)
-- :doc:`csc </projects/csc>` (an incremental static site compiler.)
 - :project:`buildcloth <buildcloth>` (a makefile generator tool.)
 - :project:`dtf <dtf>` (a generic documentation testing framework.)
-- :project:`Taskfile <taskfile>` (a task list compiler.)
+
+In development:
+
+- :doc:`taskn </projects/taskn>` a note tracking utility for use with TaskWarrior.
+- :doc:`csc </projects/csc>` (an incremental static site compiler.)
+
+Frozen/Unaintained: 
+
 - :project:`Personal Stats Logger (stl) <stl>` (a script.)
-- :project:`tychoish's desktop configuration stack <stack>` (or
-  simply, "stack," which is a collection of Emacs, StumpWM, and
-  related configuration files.)
+- :project:`Taskfile <taskfile>` (a task list compiler.)
+- :project:`tychoish's desktop configuration stack <stack>` (a
+  collection of Emacs, StumpWM, and related configuration files.)
 
 See ":doc:`projects`" for more information.
 
@@ -37,21 +45,17 @@ Resources
   Provides :term:`git` hosting and mirrors to institute projects and
   related efforts.
 
-- `lists.cyborginstitute.net <http://lists.cyborginstitute.net/>`_
+- `lists.cyborginstitute.net <http://lists.cyborginstitute.net/>`_:
   E-mail listservs for Institute use and projects.
 
-- `issues.cyborginstitute.net <http://issues.cyborginstitute.net/>`_
-  (*forthcoming*): Provides issue tracking references and links for
-  Institute projects.
+- `issues.cyborginstitute.net <http://issues.cyborginstitute.net/>`_:
+  Provides issue tracking references and links for Institute projects.
 
 Related Projects
 ----------------
 
 - `tychoish.com wiki <http://tychoish.com>`_: Wiki/blog space for
   Institute related projects.
-
-- `Critical Futures <http://criticalfutures.com>`_: Science Fiction
-  and Literary projects and experimental publishing.
 
 - `Outer Alliance Wiki <http://oa.criticalfutures.com/>`_: The wiki of
   `the Outer Alliance <http://outeralliance.org>`_.
@@ -71,5 +75,6 @@ Pages
    :hidden:
 
    projects/rstcloth
+   projects/taskn
    projects/csc
    ref
