@@ -18,7 +18,7 @@ always feel free to be in :doc:`contact <contact>`."
 Projects
 --------
 
-Current/Active: 
+Current/Active:
 
 - :project:`Systems Administration for Cyborgs <administration>` (a book-like-object.)
 - :project:`buildcloth <buildcloth>` (a makefile generator tool.)
@@ -29,7 +29,7 @@ In development:
 - :doc:`taskn </projects/taskn>` a note tracking utility for use with TaskWarrior.
 - :doc:`csc </projects/csc>` (an incremental static site compiler.)
 
-Frozen/Unaintained: 
+Frozen/Unmaintained:
 
 - :project:`Personal Stats Logger (stl) <stl>` (a script.)
 - :project:`Taskfile <taskfile>` (a task list compiler.)

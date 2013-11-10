@@ -30,7 +30,7 @@ required skills for systems administration.
 
 For more information:
 
-- `Systems Administration for Cyborgs <http://cyborginstitute.org/projects/administration>`_
+- :project:`Systems Administration for Cyborgs <administration>`
 - `SAfC source repository <http://git.cyborginstitute.net/?p=administration.git>`_
 - `SAfC source repository on github <http://github.com/cyborginstitute/administration>`_
 
@@ -48,7 +48,7 @@ maintainers.
 
 For more information:
 
-- `dtf documentation <http://cyborginstitute.org/projects/dtf/>`_ 
+- :project:`dtf documentation </dtf>`
 - `dtf pakages on PyPI <https://pypi.python.org/pypi/dtf>`_ 
 - `dtf issue tracker <https://issues.cyborginstitute.net/describecomponents.cgi?product=dtf>`_
 - `dtf source repository <http://github.com/cyborginstitute/dtf/>`_
@@ -67,7 +67,7 @@ maintainable, and clear than would be otherwise possible using native
 Make syntax, with more flexibility than you would have with a
 Make-replacement.
 
-- :doc:`/projects/buildfile`
+- :project:`Buildcloth <buildcloth>`
 - `github buildfile-generator repository <http://github.com/tychoish/buildfile-generator>`_
 
 ..

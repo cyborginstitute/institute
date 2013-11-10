@@ -1,0 +1,13 @@
+git:
+  repo: institute
+  url: gitosis@cyborginstitute.net:institute.git
+project:
+  name: institute
+  url: http://cyborginstitute.org
+  tag: 'projects/tools'
+paths:
+  buildsystem: build/institute-tools
+  builddata: config
+  source: source
+  output: build
+...

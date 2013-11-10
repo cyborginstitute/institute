@@ -12,11 +12,13 @@
 # serve to show the default.
 
 import sys, os
+project_root = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_root)
+from bootstrap import buildsystem, master_conf
+sys.path.append(os.path.join(project_root, buildsystem))
+from utils.config import get_conf
 
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+conf = get_conf(project_root)
 
 # -- General configuration -----------------------------------------------------
 
@@ -51,12 +53,12 @@ extlinks = {
 git_name = 'institute'
 
 html_theme = 'cyborg'
-html_theme_path = ['themes']
+html_theme_path = [os.path.join(conf.paths.projectroot, conf.paths.buildsystem, 'themes')]
 html_static_path = ['.static']
 
 html_use_smartypants = True
-html_theme_options = { 
-    'project': git_name, 
+html_theme_options = {
+    'project': git_name,
     'ga_code': 'UA-2505694-4'
 }
 

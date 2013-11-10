@@ -8,3 +8,5 @@ build/*
 makefile.projects
 __pycache__
 source/projects/
+*.pyc
+fabfile
