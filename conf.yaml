@@ -4,7 +4,7 @@ git:
 project:
   name: institute
   url: http://cyborginstitute.org
-  tag: 'projects/tools'
+  tag: '/'
 paths:
   buildsystem: build/institute-tools
   builddata: config

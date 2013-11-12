@@ -6,7 +6,7 @@ import sys
 
 project_root = os.path.abspath(os.path.dirname(__file__))
 
-master_conf = os.path.join(project_root, 'bin', 'conf.yaml')
+master_conf = os.path.join(project_root, 'conf.yaml')
 
 with open(master_conf, 'r') as f:
     conf = yaml.safe_load(f)
@@ -16,13 +16,13 @@ buildsystem = conf['paths']['buildsystem']
 sys.path.append(os.path.join(buildsystem, 'utils'))
 
 def bootstrap():
-    repo = conf['git']['url']
+    repo = conf['system']['tools']
 
     if os.path.exists(buildsystem):
         import bootstrap_helper
 
         cmd = []
-        
+
         if bootstrap_helper.reset_ref is not None:
             cmd.append(['git', 'reset', '--quiet', '--hard', bootstrap_helper.reset_ref])
 
