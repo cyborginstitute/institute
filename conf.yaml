@@ -10,4 +10,6 @@ paths:
   builddata: config
   source: source
   output: build
+system:
+  tools: git@github.com:cyborginstitute/institute-tools.git  
 ...
