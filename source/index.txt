@@ -18,19 +18,19 @@ always feel free to be in :doc:`contact <contact>`."
 Projects
 --------
 
-Current/Active:
+Book:
 
 - :project:`Systems Administration for Cyborgs <administration>` (a book-like-object.)
+
+Active and In Development:
+
 - :project:`buildcloth <buildcloth>` (a makefile generator tool.)
 - :project:`dtf <dtf>` (a generic documentation testing framework.)
-
-In development:
-
-- :doc:`taskn </projects/taskn>` a note tracking utility for use with TaskWarrior.
 - :doc:`csc </projects/csc>` (an incremental static site compiler.)
 
-Frozen/Unmaintained:
+Legacy:
 
+- :doc:`taskn </projects/taskn>` a note tracking utility for use with TaskWarrior.
 - :project:`Personal Stats Logger (stl) <stl>` (a script.)
 - :project:`Taskfile <taskfile>` (a task list compiler.)
 - :project:`tychoish's desktop configuration stack <stack>` (a

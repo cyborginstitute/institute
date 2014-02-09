@@ -6,8 +6,16 @@ Projects Overview
    development stage, and ":doc:`contact`" if you want to have your
    project included in the Institute.
 
+.. content::
+   :backlinks: none
+   :local:
+
+
+Book
+----
+
 Systems Administration for Cyborgs
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *Systems Administration for Cyobrgs* provides an introduction for
 technical audiences to basic systems administration concepts and
@@ -34,6 +42,9 @@ For more information:
 - `SAfC source repository <http://git.cyborginstitute.net/?p=administration.git>`_
 - `SAfC source repository on github <http://github.com/cyborginstitute/administration>`_
 
+Software
+--------
+
 ``dtf``, a Documentation Testing Framework
 ------------------------------------------
 
@@ -49,7 +60,7 @@ maintainers.
 For more information:
 
 - :project:`dtf documentation </dtf>`
-- `dtf pakages on PyPI <https://pypi.python.org/pypi/dtf>`_ 
+- `dtf pakages on PyPI <https://pypi.python.org/pypi/dtf>`_
 - `dtf issue tracker <https://issues.cyborginstitute.net/describecomponents.cgi?product=dtf>`_
 - `dtf source repository <http://github.com/cyborginstitute/dtf/>`_
 - `dtf github repository <http://github.com/cyborginstitute/dtf/>`_
@@ -87,16 +98,16 @@ Make-replacement.
       generate websites based on templates and source files in a
       lightweight markup language.
 
+Legacy Projects
+---------------
 
+The represent cool projects from the past that are just here for
+archival purposes.
 stl, a Personal Logging Script
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``stl`` (i.e. "stats logger") is a tool for managing, maintaining,
-and logging work for writers. It provides a unified interface around
-logging word count information, as well as compiling projects, and
-other related functionality. If you publish text using software such
-as `ikiwiki`_, `Sphinx`_, or using ad hoc Makefiles, ``stl`` may do
-exactly what you want.
+A tool that collects data about project word counts along with
+arbitrary logging.
 
 - `stl project page <http://cyborginstitute.com/projects/stl>`_
 - `stl source repository <http://git.cyborginstitute.net/?p=stl.git>`_
@@ -105,24 +116,21 @@ exactly what you want.
 .. _`Sphinx`: http://sphinx.pocoo.org/
 
 Desktop Configuration Stack
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-"Stack," provides baseline configurations for a number of applications
-(beginning with emacs and StumpWM,) presented as an example and
-jumping off point for new users who want to build their own
-configuration.
+A collection of configuration files for Emacs and StumpWM as a
+starting point for new users.
 
 - `Stack project page <http://cyborginstitute.com/projects/stack>`_
 - `Stack source repository <http://git.cyborginstitute.net/?p=stack.git>`_
 - `Stack source repository on github <http://github.com/tychoish/stack>`_
 
 Taskfile
---------
+~~~~~~~~
 
-Using `GNU Make <http://www.gnu.org/software/make/>`_ provides a way
-to compile lists of ``TODO`` items from a tree of files, such as those
-created by a flat-file wiki like `ikiwiki`_ or `Gollum`_. Includes
-example makefile examples, a deployment guide, and documentation.
+A half-baked, but thoroughly documented attempt to use `GNU Make
+<http://www.gnu.org/software/make/>`_ to compile a task list, from
+items embedded in a project's source files.
 
 - `Taskfile project page and documentation <http://cyborginstitute.com/projects/taskfile>`_
 - `Taskfile source repository <http://git.cyborginstitute.net/?p=tasfile.git>`_
@@ -130,4 +138,3 @@ example makefile examples, a deployment guide, and documentation.
 
 .. _`ikiwiki`: http://ikiwiki.info
 .. _`Gollum`: https://github.com/github/gollum
-
