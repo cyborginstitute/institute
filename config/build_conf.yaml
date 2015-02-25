@@ -1,0 +1,28 @@
+git:
+  remote:
+    upstream: cyborginstitute/institute
+    tools: cyborginstitute/institute-tools
+project:
+  name: institute
+  url: http://cyborginstitute.org
+  tag: '/'
+assets:
+  - branch: master
+    path: build/institute-tools
+    repository: https://github.com/cyborginstitute/institute-tools.git
+  - branch: master
+    path: build/docs-tools
+    repository: https://github.com/mongodb/docs-tools.git
+paths:
+  buildsystem: build/institute-tools
+  builddata: config
+  source: source
+  output: build
+  includes: source/includes
+  images: source/images
+system:
+  files:
+    - 'push.yaml'
+    - 'integration.yaml'
+    - 'sphinx_local.yaml'
+...

@@ -11,28 +11,32 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
-project_root = os.path.join(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(project_root)
-from bootstrap import buildsystem, master_conf
-sys.path.append(os.path.join(project_root, buildsystem))
-from utils.config import get_conf
+import sys
+import os
+import datetime
 
-conf = get_conf(project_root)
+from giza.config.runtime import RuntimeStateConfig
+from giza.config.helper import fetch_config
+
+import alabaster
+
+conf = fetch_config(RuntimeStateConfig())
+sconf = conf.system.files.data.sphinx_local
 
 # -- General configuration -----------------------------------------------------
 
 needs_sphinx = '1.0'
-extensions = ["sphinx.ext.intersphinx", "sphinx.ext.extlinks"]
-templates_path = ['.templates']
+extensions = ["sphinx.ext.intersphinx", "sphinx.ext.extlinks", "alabaster"]
+templates_path = [os.path.join(conf.paths.projectroot, 'templates'),
+                  os.path.join(conf.paths.projectroot, conf.paths.buildsystem, 'templates')]
 source_suffix = '.txt'
 master_doc = 'index'
 
 # General information about the project.
 project = u'Cyborg Institute'
-copyright = u'2011-2013, Contributors to the Cyborg Institute'
+copyright = u'2011-{0}, Contributors to the Cyborg Institute'.format(datetime.date.today().year)
 
-version = '1.0'
+version = ''
 release = version
 
 exclude_patterns = []
@@ -52,24 +56,23 @@ extlinks = {
 
 git_name = 'institute'
 
-html_theme = 'cyborg'
-html_theme_path = [os.path.join(conf.paths.projectroot, conf.paths.buildsystem, 'themes')]
+html_theme = sconf.theme.name
+html_theme_path = [ os.path.join(conf.paths.output, 'institute-tools', 'themes'), alabaster.get_path() ]
 html_static_path = ['.static']
 
 html_use_smartypants = True
+
 html_theme_options = {
-    'project': git_name,
-    'ga_code': 'UA-2505694-4'
+    'analytics_id': sconf.theme.google_analytics,
+    'github_user': 'cyborgisntitute',
+    'github_repo': 'administration',
+    'github_button': True,
 }
 
-html_sidebars = {
-    '**': ['localtoc.html', 'relations.html', 'sourcelink.html'],
-}
 
-#html_title = None
-#html_short_title = None
-#html_logo = None
-#html_favicon = None
+html_sidebars = sconf.sidebars
+html_title = sconf.theme.sitename
+html_short_title = html_title
 
 html_use_index = True
 html_show_sourcelink = False

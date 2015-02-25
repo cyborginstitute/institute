@@ -6,10 +6,9 @@ Projects Overview
    development stage, and ":doc:`contact`" if you want to have your
    project included in the Institute.
 
-.. content::
+.. contents::
    :backlinks: none
    :local:
-
 
 Book
 ----
