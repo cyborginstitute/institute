@@ -46,7 +46,7 @@ Software
 --------
 
 ``dtf``, a Documentation Testing Framework
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 dtf is a test runner, designed to help coordinate and enforce
 consistency requirements for large documentation projects, though its
@@ -66,7 +66,7 @@ For more information:
 - `dtf github repository <http://github.com/cyborginstitute/dtf/>`_
 
 Buildfile Generator, a Makefile Automation
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Buildfile Generator is a simple lightweight interface to generate
 Makefiles by writing Python code. Buildfile doesn't have any specific
@@ -103,6 +103,7 @@ Legacy Projects
 
 The represent cool projects from the past that are just here for
 archival purposes.
+
 stl, a Personal Logging Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
